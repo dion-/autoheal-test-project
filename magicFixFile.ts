@@ -5,10 +5,12 @@ import { readFileSync, writeFileSync } from "fs";
 import { Configuration, OpenAIApi, ChatCompletionRequestMessage } from "openai";
 
 export async function magicFixFile(filePath: string, testResults: string) {
-  console.log(chalk.green.bold("✨ Attempting to fix file: ", filePath, "\n"));
+  console.log(
+    chalk.yellowBright.bold("✨ Attempting to fix file: ", filePath, "\n")
+  );
   const fileContent = readFileSync(filePath, { encoding: "utf-8" });
 
-  console.log("```\n", chalk.italic.dim(fileContent.slice(0, 130)), "\n```\n");
+  //console.log("```\n", chalk.italic.dim(fileContent.slice(0, 130)), "\n```\n");
 
   //await wait(6000);
 
@@ -23,7 +25,7 @@ export async function magicFixFile(filePath: string, testResults: string) {
   const newFile = rawFile?.replace(/```/g, "");
 
   // Write file
-  writeFileSync("test.ts", newFile || "");
+  writeFileSync(filePath, newFile || "");
 }
 
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));

@@ -5,24 +5,30 @@ import chalk from "chalk";
 
 await run();
 
+function wait(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function run() {
   let testResults = runTests();
   //let isPassing = areTestResultsPassing(testResults);
 
   //const filesToFix = await parseTestResults(testResults);
   const filesToFix = ["Order.ts"];
-  console.log("PASSING", testResults.success);
-  while (testResults.success === false) {
+  while (true) {
+    testResults = runTests();
+    if (testResults.success) {
+      await wait(1000);
+      console.log(chalk.green.bold("All tests are passing!"));
+      continue;
+    }
+
     console.log(chalk.bold("Tests failing. Details:"));
     console.log(
       "```\n",
-      chalk.italic.dim(testResults.details.slice(0, 150)),
+      chalk.italic.dim(testResults.details.slice(0, 450)),
       "\n```\n"
     );
-
-    if (testResults.success) {
-      return;
-    }
 
     for (const file of filesToFix) {
       await magicFixFile(file, testResults.details);
