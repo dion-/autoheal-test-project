@@ -1,6 +1,6 @@
-
 import { Customer } from "./Customer.js";
 import { Product } from "./Product.js";
+import { Location } from "./Location.js";
 
 export class LineItem {
   id?: number;
@@ -19,6 +19,7 @@ export class Order {
   private customer?: Customer;
   private lineItems: LineItem[] = [];
   private note: string = "";
+  private location?: Location;
 
   constructor(id?: number) {
     this.id = id;
@@ -58,5 +59,13 @@ export class Order {
 
   setCustomer(customer: Customer) {
     this.customer = customer;
+  }
+
+  getLocation() {
+    return this.location;
+  }
+
+  setLocation(location: Location) {
+    this.location = location;
   }
 }

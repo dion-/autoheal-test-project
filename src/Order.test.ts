@@ -2,6 +2,7 @@ import { test, expect } from "bun:test";
 import { Product } from "./Product.js";
 import { Order, LineItem } from "./Order.js";
 import { Customer } from "./Customer.js";
+import { Location } from "./Location.js";
 
 const testProduct = new Product(1, "Product 1", 10);
 const testLineItem = new LineItem(testProduct, 1);
@@ -38,4 +39,13 @@ test("Order set customer", () => {
   expect(order.getCustomer()).toBeUndefined();
   order.setCustomer(customer);
   expect(order.getCustomer()).toBe(customer);
+});
+
+test("Order set location", () => {
+  const order = new Order();
+  const customer = new Location("Location 1", "Address 1");
+
+  expect(order.getLocation()).toBeUndefined();
+  order.setLocation(customer);
+  expect(order.getLocation()).toBe(customer);
 });
