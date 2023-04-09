@@ -2,6 +2,9 @@
   "name": "codeai",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "test": "bun test"
+  },
   "devDependencies": {
     "bun-types": "^0.4.0"
   },

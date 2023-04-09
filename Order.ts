@@ -28,6 +28,7 @@ export class Order {
   id?: number;
   customer?: Customer;
   private lineItems: LineItem[] = [];
+  private note: string = "";
 
   constructor(id?: number) {
     this.id = id;
@@ -40,7 +41,7 @@ export class Order {
   }
 
   addLineItem(lineItem: LineItem) {
-    //this.lineItems.push(lineItem);
+    this.lineItems.push(lineItem);
   }
 
   getLineItems() {
@@ -49,7 +50,15 @@ export class Order {
 
   getTotal() {
     return this.lineItems.reduce((total, lineItem) => {
-      return total + lineItem.product?.price || 0;
+      return total + (lineItem.product?.price || 0) * lineItem.quantity;
     }, 0);
+  }
+
+  getNote() {
+    return this.note;
+  }
+
+  setNote(newNote: string) {
+    //this.note = newNote.slice(0, 30);
   }
 }

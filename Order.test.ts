@@ -21,11 +21,19 @@ test("Order can add products", () => {
   expect(order.getLineItems()).toStrictEqual([testLineItem]);
 });
 
-// test("Order calculates total", () => {
-//   const order = new Order();
+test("Order calculates total", () => {
+  const order = new Order();
 
-//   expect(order.getTotal()).toBe(0);
-//   order.addLineItem(testLineItem);
-//   expect(order.getTotal()).toBe(10);
-//   expect(order.getLineItems()).toStrictEqual([testLineItem]);
-// });
+  expect(order.getTotal()).toBe(0);
+  order.addLineItem(testLineItem);
+  expect(order.getTotal()).toBe(10);
+  expect(order.getLineItems()).toStrictEqual([testLineItem]);
+});
+
+test("Order set note", () => {
+  const order = new Order();
+
+  expect(order.getNote()).toBe("");
+  order.setNote("This is a note");
+  expect(order.getNote()).toBe("This is a note");
+});
