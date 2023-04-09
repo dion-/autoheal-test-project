@@ -58,7 +58,5 @@ export class Order {
     return this.note;
   }
 
-  setNote(newNote: string) {
-    //this.note = newNote.slice(0, 30);
-  }
+  setNote(newNote: string) {}
 }
