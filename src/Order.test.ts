@@ -1,5 +1,5 @@
 import { test, expect } from "bun:test";
-import { Order, Product, LineItem } from "./src/Order.js";
+import { Order, Product, LineItem } from "./Order.js";
 import fs from "fs";
 
 const originalConsoleLog = console.log;
