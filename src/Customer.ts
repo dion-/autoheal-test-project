@@ -1,4 +1,3 @@
-
 export class Customer {
   name?: string;
   smsOptin: boolean = false;

@@ -1,3 +1,4 @@
+
 import { Customer } from "./Customer.js";
 import { Product } from "./Product.js";
 
@@ -15,7 +16,7 @@ export class LineItem {
 
 export class Order {
   id?: number;
-  customer?: Customer;
+  private customer?: Customer;
   private lineItems: LineItem[] = [];
   private note: string = "";
 
@@ -49,5 +50,13 @@ export class Order {
 
   setNote(note: string) {
     this.note = note;
+  }
+
+  getCustomer() {
+    return this.customer;
+  }
+
+  setCustomer(customer: Customer) {
+    this.customer = customer;
   }
 }
