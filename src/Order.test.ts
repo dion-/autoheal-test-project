@@ -1,8 +1,9 @@
 import { test, expect } from "bun:test";
-import { Order, Product, LineItem } from "./Order.js";
+import { Product } from "./Product.js";
+import { Order, LineItem } from "./Order.js";
 
 const testProduct = new Product(1, "Product 1", 10);
-const testLineItem = new LineItem(1, testProduct, 1);
+const testLineItem = new LineItem(testProduct, 1);
 
 test("Order can add products", () => {
   const order = new Order();
