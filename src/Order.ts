@@ -29,17 +29,13 @@ export class Order {
     return this.lineItems;
   }
 
-  setLineItems(lineItems: LineItem[]) {
-    this.lineItems = lineItems;
-  }
-
   addLineItem(lineItem: LineItem) {
     this.lineItems.push(lineItem);
   }
 
   getTotal() {
     return this.lineItems.reduce((total, lineItem) => {
-      return total + lineItem.product.price;
+      return lineItem.product.price + total;
     }, 0);
   }
 
@@ -65,5 +61,9 @@ export class Order {
 
   setLocation(location: Location) {
     this.location = location;
+  }
+
+  reset() {
+    this.lineItems = [];
   }
 }
