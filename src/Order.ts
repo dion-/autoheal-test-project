@@ -25,7 +25,9 @@ export class Order {
     this.id = id;
   }
 
-  async load() {}
+  getLineItems() {
+    return this.lineItems;
+  }
 
   setLineItems(lineItems: LineItem[]) {
     this.lineItems = lineItems;
@@ -33,10 +35,6 @@ export class Order {
 
   addLineItem(lineItem: LineItem) {
     this.lineItems.push(lineItem);
-  }
-
-  getLineItems() {
-    return this.lineItems;
   }
 
   getTotal() {
