@@ -7,7 +7,11 @@ export class LineItem {
   product: Product;
   quantity: number;
 
-  constructor(product: Product, quantity: number, id?: number) {
+  constructor(
+    product: Product,
+    quantity: number,
+    id?: number
+  ) {
     this.id = id;
     this.product = product;
     this.quantity = quantity;
@@ -34,9 +38,12 @@ export class Order {
   }
 
   getTotal() {
-    return this.lineItems.reduce((total, lineItem) => {
-      return lineItem.product.price + total;
-    }, 0);
+    return this.lineItems.reduce(
+      (total, lineItem) => {
+        return lineItem.product.price + total;
+      },
+      0
+    );
   }
 
   getNote() {

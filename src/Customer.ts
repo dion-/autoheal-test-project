@@ -15,7 +15,10 @@ export class Customer {
     this.emailOptin = optin;
   }
 
-  setMarketingOptin(smsOptin: boolean, emailOptin: boolean) {
+  setMarketingOptin(
+    smsOptin: boolean,
+    emailOptin: boolean
+  ) {
     this.smsOptin = smsOptin;
     this.emailOptin = emailOptin;
   }
