@@ -39,7 +39,7 @@ export class Order {
 
   getTotal() {
     return this.lineItems.reduce((total, lineItem) => {
-      return total + (lineItem.product?.price || 0) * lineItem.quantity;
+      return total + lineItem.product.price;
     }, 0);
   }
 
